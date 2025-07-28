@@ -1,0 +1,12 @@
+# Environments
+.env
+
+# Datasets
+datasets/
+
+# Python
+__pycache__/
+*.pyc
+
+# Trajectory files
+*.txt
