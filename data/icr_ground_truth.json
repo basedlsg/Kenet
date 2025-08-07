@@ -1,0 +1,34 @@
+[
+    {
+        "constraint": "the chair is inside the wall",
+        "is_impossible": true
+    },
+    {
+        "constraint": "the monitor is floating in mid-air",
+        "is_impossible": true
+    },
+    {
+        "constraint": "the desk is halfway through the floor",
+        "is_impossible": true
+    },
+    {
+        "constraint": "the lamp is inside the desk",
+        "is_impossible": true
+    },
+    {
+        "constraint": "the chair is on the floor next to the desk",
+        "is_impossible": false
+    },
+    {
+        "constraint": "the lamp is on the table",
+        "is_impossible": false
+    },
+    {
+        "constraint": "the keyboard is in front of the monitor on the desk",
+        "is_impossible": false
+    },
+    {
+        "constraint": "the mouse is on the mousepad",
+        "is_impossible": false
+    }
+]
