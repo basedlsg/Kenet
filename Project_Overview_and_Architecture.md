@@ -142,3 +142,31 @@ Adopting an IaC approach would provide several benefits, including:
 *(To be completed by the Review Committee)*
 
 *This section will contain the final sign-off from the review committee, verifying the accuracy and clarity of the document.*
+
+---
+
+## 6. New Features
+
+### 6.1. Learned Geometric Pruning
+
+*   **Objective:** To replace our current fixed-distance geometric filter with a trained neural network that predicts the most likely regions for loop-closure candidates.
+*   **Implementation:**
+    *   A new script, `scripts/collect_pruning_data.py`, was created to collect training data for the pruning model.
+    *   A new module, `src/pruning_model.py`, was created to define the pruning model architecture.
+    *   A new script, `scripts/train_pruning_model.py`, was created to train the pruning model.
+    *   The `find_loop_closure_candidates` function in `src/slam_rag_loop.py` was updated to use the trained pruning model.
+*   **Cloud Infrastructure:**
+    *   A new GCS directory, `gs://atropos_bucket/pruning_model_data/`, was created to store the training data for the pruning model.
+    *   A new Vertex AI Training job was created to train the pruning model.
+    *   The trained model was registered in the Vertex AI Model Registry.
+
+### 6.2. End-to-End Learned RAG Policy
+
+*   **Objective:** To replace the separate "retrieve then verify" steps with a single, end-to-end policy network trained with reinforcement learning, using the `atropos` framework.
+*   **Implementation:**
+    *   A new SLAM environment, `atropos/environments/slam_env.py`, was created to support the new policy.
+    *   A new policy network, `atropos/atroposlib/slam_policy_network.py`, was created to define the policy network architecture.
+    *   A new training script, `atropos/example_trainer/train_slam.py`, was created to train the new policy.
+*   **Cloud Infrastructure:**
+    *   A new Vertex AI Endpoint was created to host the policy model.
+    *   A new GKE cluster was created to support distributed training.

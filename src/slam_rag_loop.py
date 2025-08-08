@@ -75,6 +75,8 @@ def populate_database():
 def find_loop_closure_candidates(query_embedding, top_k=5, geo_filter=None):
     """Finds potential loop closure candidates from the Qdrant database."""
     db = VectorDB(collection_name=COLLECTION_NAME)
+    # In a real implementation, we would need to get the 3D pose
+    # and use the pruning model to predict the most promising regions.
     return db.query(query_embedding, top_k=top_k, geo_filter=geo_filter)
 
 def verify_loop_closure(current_caption, candidate_caption):
